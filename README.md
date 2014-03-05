@@ -1,6 +1,8 @@
 # cap-git-tags
 
-Auto tags staging deploys, deploys last staging tag to production with a tag
+## What is it?
+
+This is a capistrano 3 plugin for auto tagging your git deploys.
 
 ## Installation
 
@@ -14,6 +16,32 @@ In your *Capfile*:
 
 ```ruby
 require 'cap-git-tags'
+```
+
+* * *
+
+## Usage
+
+### When you deploy to staging
+
+You are prompted for a deploy note of what you have just changed, from this a staging tag is created:
+
+    # We replace all non alpha-numeric characters in your notes with a '-'
+    staging-YYYY-MM-DD-HH-mm-your-release-notes
+
+### When you deploy to production
+
+We lookup the latest staging tag in your git repo and go to deploy.
+**You are prompted to confirm the deploy first**
+
+We then create a new tag switching out the *staging* keyword for *prodution*.
+
+### Overriding the production deploy tag/branch
+
+If you set an environment variable **TAG** we'll use that for your production deploy e.g.
+
+```sh
+$ TAG=old_staging_release_tag cap production deploy
 ```
 
 * * *
