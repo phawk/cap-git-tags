@@ -48,5 +48,5 @@ namespace :deploy do
     end
   end
 
-  before :starting, :create_tag
+  before :updating, :create_tag
 end

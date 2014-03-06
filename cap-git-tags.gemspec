@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = CapGitTags::VERSION
   spec.authors       = ["Pete Hawkins", "Adrian Dugan"]
   spec.email         = ["pete@phawk.co.uk", "rant@dugg.ie"]
-  spec.description   = %q{Auto tags staging deploys, deploys last staging tag to production with a tag}
-  spec.summary       = %q{Auto tags staging deploys, deploys last staging tag to production with a tag}
+  spec.description   = %q{This is a capistrano 3 plugin for auto tagging your git deploys.}
+  spec.summary       = %q{Auto tags staging and production deploys for git projects}
   spec.homepage      = "https://github.com/phawk/cap-git-tags"
   spec.license       = "MIT"
 
