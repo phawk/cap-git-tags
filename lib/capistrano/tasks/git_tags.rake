@@ -6,7 +6,7 @@ namespace :gittags do
       run_locally do
         current_stage = fetch(:stage)
 
-        if current_stage == :production
+        if current_stage == Capistrano::GitTags.configuration.production_stage
           # Production deploys use the latest staging tag or passed in ENV['TAG']
           if ENV['TAG']
             latest_staging_tag = production_tag = ENV['TAG']
@@ -28,7 +28,7 @@ namespace :gittags do
           end
 
           set :branch, production_tag
-        elsif current_stage == :staging
+        elsif current_stage == Capistrano::GitTags.configuration.staging_stage
           # Staging deploys create a new tag based on user input
           time = Time.new
 

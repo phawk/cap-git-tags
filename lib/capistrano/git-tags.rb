@@ -6,6 +6,18 @@ load File.expand_path("../tasks/git_tags.rake", __FILE__)
 
 module Capistrano
   module GitTags
+    class << self
+      attr_writer :configuration
+    end
+
+    def self.configuration
+      @configuration ||= Configuration.new
+    end
+
+    def self.configure
+      yield(configuration)
+    end
+
     class Helper
 
       def self.git(cmd)
