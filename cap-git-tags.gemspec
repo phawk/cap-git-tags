@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'cap-git-tags/version'
+require 'capistrano/git-tags/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "cap-git-tags"
-  spec.version       = CapGitTags::VERSION
+  spec.version       = Capistrano::GitTags::VERSION
   spec.authors       = ["Pete Hawkins", "Adrian Dugan"]
   spec.email         = ["pete@phawk.co.uk", "rant@dugg.ie"]
   spec.description   = %q{This is a capistrano 3 plugin for auto tagging your git deploys.}
