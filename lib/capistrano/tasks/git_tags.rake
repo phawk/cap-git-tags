@@ -24,7 +24,7 @@ namespace :gittags do
 
           unless ENV['TAG']
             info "Publishing tag: #{production_tag}"
-            CapGitTags::Helper.publish_tag production_tag
+            Capistrano::GitTags::Helper.publish_tag production_tag
           end
 
           set :branch, production_tag
@@ -38,14 +38,14 @@ namespace :gittags do
           staging_tag = "staging-#{time.year}-#{time.month}-#{time.day}-#{time.hour}-#{time.min}-#{safe_tag}"
 
           info "Publishing tag: #{staging_tag}"
-          CapGitTags::Helper.publish_tag staging_tag
+          Capistrano::GitTags::Helper.publish_tag staging_tag
 
           info "Deploying: #{staging_tag} to staging"
           set :branch, staging_tag
         else
           # dev environments allow any branch to be pushed and don't create a tag
           info "About to deploy your current branch, enter a different branch name to override"
-          ask :branch, proc { CapGitTags::Helper.current_branch }
+          ask :branch, proc { Capistrano::GitTags::Helper.current_branch }
         end
       end
     end
