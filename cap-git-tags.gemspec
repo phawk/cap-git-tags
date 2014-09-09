@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'capistrano/git-tags/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "cap-git-tags"
+  spec.name          = "capistrano-git_tags"
   spec.version       = Capistrano::GitTags::VERSION
   spec.authors       = ["Pete Hawkins", "Adrian Dugan"]
   spec.email         = ["pete@phawk.co.uk", "rant@dugg.ie"]
   spec.description   = %q{This is a capistrano 3 plugin for auto tagging your git deploys.}
   spec.summary       = %q{Auto tags staging and production deploys for git projects}
-  spec.homepage      = "https://github.com/phawk/cap-git-tags"
+  spec.homepage      = "https://github.com/phawk/capistrano-git_tags"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
 end

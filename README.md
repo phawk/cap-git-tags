@@ -1,5 +1,7 @@
 # cap-git-tags
 
+[![Gem Version](https://badge.fury.io/rb/cap-git-tags.svg)](http://badge.fury.io/rb/cap-git-tags)
+
 ## What is it?
 
 This is a capistrano 3 plugin for auto tagging your git deploys.
