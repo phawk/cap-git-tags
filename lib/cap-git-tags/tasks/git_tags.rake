@@ -16,9 +16,9 @@ namespace :gittags do
           end
 
           info "You are about to deploy: #{latest_staging_tag} to production"
-          ask :yes_to_confirm_deploy, "n"
+          ask :"‘yes’ to confirm deploy", "n"
 
-          if fetch(:yes_to_confirm_deploy)[0].downcase != "y"
+          if fetch(:"‘yes’ to confirm deploy")[0].downcase != "y"
             abort "You didn't confirm the deployment"
           end
 
