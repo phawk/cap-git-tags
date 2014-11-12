@@ -9,7 +9,7 @@ This is a capistrano 3 plugin for auto tagging your git deploys.
 In a gemfile:
 
 ```ruby
-gem 'cap-git-tags'
+gem 'cap-git-tags', require: false
 ```
 
 In your *Capfile*:
