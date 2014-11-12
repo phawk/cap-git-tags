@@ -15,7 +15,7 @@ gem 'cap-git-tags', require: false
 In your *Capfile*:
 
 ```ruby
-require 'capistrano/git-tags'
+require 'capistrano/git_tags'
 ```
 
 * * *
