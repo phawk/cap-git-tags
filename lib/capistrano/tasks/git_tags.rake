@@ -22,6 +22,9 @@ namespace :gittags do
             abort "You didn't confirm the deployment"
           end
 
+          info "Checking out '#{latest_staging_tag}' locally"
+          Capistrano::GitTags::Helper.git "checkout #{latest_staging_tag}"
+
           unless ENV['TAG']
             info "Publishing tag: #{production_tag}"
             Capistrano::GitTags::Helper.publish_tag production_tag
@@ -34,8 +37,8 @@ namespace :gittags do
 
           ask :a_description_of_what_you_are_deploying, "latest changes"
 
-          safe_tag = fetch(:a_description_of_what_you_are_deploying).downcase.gsub(/[^a-z0-9]/, "-")
-          staging_tag = "staging-#{time.year}-#{time.month}-#{time.day}-#{time.hour}-#{time.min}-#{safe_tag}"
+          safe_tag = fetch(:a_description_of_what_you_are_deploying).downcase.gsub(/[^a-z0-9]/, "-").gsub(/staging/, "stage")
+          staging_tag = "staging-#{time.strftime('%Y-%m-%d-%H-%M')}-#{safe_tag}"
 
           info "Publishing tag: #{staging_tag}"
           Capistrano::GitTags::Helper.publish_tag staging_tag
