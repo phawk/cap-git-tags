@@ -38,7 +38,7 @@ namespace :gittags do
           ask :a_description_of_what_you_are_deploying, "latest changes"
 
           safe_tag = fetch(:a_description_of_what_you_are_deploying).downcase.gsub(/[^a-z0-9]/, "-").gsub(/staging/, "stage")
-          staging_tag = "staging-#{time.year}-#{time.strftime('%m')}-#{time.strftime('%d')}-#{time.strftime('%H')}-#{time.strftime('%M')}-#{safe_tag}"
+          staging_tag = "staging-#{time.strftime('%Y-%m-%d-%H-%M')}-#{safe_tag}"
 
           info "Publishing tag: #{staging_tag}"
           Capistrano::GitTags::Helper.publish_tag staging_tag
